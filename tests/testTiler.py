@@ -1,4 +1,4 @@
-from nose.tools import *
+from nose.tools import eq_, ok_, assert_true
 import tilepaper.tiler
 import tilepaper.config
 import os

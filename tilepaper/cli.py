@@ -1,5 +1,4 @@
 from argparse import ArgumentParser
-import sys
 import logging
 import tilepaper.tiler
 import tilepaper.config

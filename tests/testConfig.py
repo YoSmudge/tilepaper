@@ -1,5 +1,5 @@
 import tilepaper.config
-from nose.tools import *
+from nose.tools import eq_, raises
 import tempfile
 import yaml
 
@@ -18,7 +18,7 @@ class testConfig(object):
         eq_(type(config), dict)
         eq_(type(config['sizes']), list)
 
-    @raises(OSError)
+    @raises(IOError)
     def test_missing(self):
         """
         Raises exception for file not found

@@ -1,5 +1,5 @@
 import tilepaper.image
-from nose.tools import *
+from nose.tools import eq_
 import PIL
 import os
 import shutil
@@ -56,9 +56,9 @@ class TestImage(object):
         os.mkdir('test-resizes')
         for example in [[100, 50], [256, 256], [50, 100]]:
             for im in [
-                       '140101-145005-00012-3423.jpg',
-                       '140101-145456-00014-3433.jpg'
-                       ]:
+                '140101-145005-00012-3423.jpg',
+                '140101-145456-00014-3433.jpg'
+            ]:
                 i = self.imageClass(im)
                 r = i.resize(*example)
                 eq_(r.size[0], example[0])

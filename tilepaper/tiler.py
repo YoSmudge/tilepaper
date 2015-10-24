@@ -4,9 +4,6 @@ import logging
 from tilepaper.image import Image
 from tilepaper.grid import Grid
 from tilepaper.renderer import TileRenderer
-import time
-import yaml
-import random
 
 
 class ConfigException(Exception):
@@ -129,8 +126,8 @@ class generator(object):
                 renderDir,
                 "%06d.jpg" % tile['id']
             )
-            r = TileRenderer(tile['grid'],
-                             tileSize,
-                             cellSize,
-                             self.config['border'],
-                             filePath)
+            TileRenderer(tile['grid'],
+                         tileSize,
+                         cellSize,
+                         self.config['border'],
+                         filePath)

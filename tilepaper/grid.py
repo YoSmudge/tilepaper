@@ -1,5 +1,4 @@
 import random
-import pprint
 
 
 class Grid(object):
@@ -95,10 +94,11 @@ class Grid(object):
         coords = []
         for im in self.grid:
             for x, y in self.imageGridCoords(
-                                             im['x'],
-                                             im['y'],
-                                             im['width'],
-                                             im['height']):
+                im['x'],
+                im['y'],
+                im['width'],
+                im['height']
+            ):
                 coords.append([x, y])
         return coords
 

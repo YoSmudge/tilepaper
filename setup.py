@@ -1,5 +1,4 @@
 from setuptools import setup, find_packages
-import os
 import tilepaper
 
 requirements = ['PyYAML==3.11', 'filemagic==1.6', 'Pillow==3.0.0']

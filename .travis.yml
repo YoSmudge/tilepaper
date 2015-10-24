@@ -17,11 +17,13 @@ sudo: false
 
 install:
   - "pip install pep8"
+  - "pip install flake8==2.4.1"
   - "pip install nose==1.3.7"
   - "python setup.py install"
 
 script:
   - pep8 setup.py tilepaper/ tests/ --statistics
+  - flake8 setup.py tilepaper/ tests/ --statistics
   - mkdir test-output
   - tilepaper --source=./example-images/ --destination=test-output/ --config=./example-config.yml --verbose
   - nosetests -v
