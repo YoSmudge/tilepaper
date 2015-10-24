@@ -6,9 +6,9 @@ import tilepaper.config
 
 def run():
     p = ArgumentParser()
-    p.add_argument('--source')
-    p.add_argument('--destination')
-    p.add_argument('--config')
+    p.add_argument('--source', required=True)
+    p.add_argument('--destination', required=True)
+    p.add_argument('--config', required=True)
     p.add_argument('--quiet', action="store_true")
     p.add_argument('--verbose', action="store_true")
     options = p.parse_args()

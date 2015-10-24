@@ -8,6 +8,9 @@ import time
 import yaml
 import random
 
+class ConfigException(Exception):
+    None
+
 class generator(object):
     imageTypes = ['image/jpeg','image/png']
 
@@ -19,6 +22,10 @@ class generator(object):
             os.path.expanduser(dest)
         )
         self.config = config
+
+        for d in [("Source", self.source), ("Destination", self.dest)]:
+            if not os.path.isdir(d[1]):
+                raise ConfigException("%s directory not found!" % d[0])
 
         images = self.findImages(self.source)
         logging.info("Found %d images" % len(images))
