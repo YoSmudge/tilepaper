@@ -1,5 +1,6 @@
 from PIL import Image as Img
 
+
 class TileRenderer(object):
     def __init__(self, grid, tileSize, cellSize, border, filePath):
         self.tileSize = tileSize
@@ -7,7 +8,7 @@ class TileRenderer(object):
         self.im = Img.new("RGB", tileSize)
         self.filePath = filePath
 
-        for i,tile in enumerate(grid.grid):
+        for i, tile in enumerate(grid.grid):
             sizeX = (cellSize[0]*tile['width'] - border['size'])
             sizeY = (cellSize[1]*tile['height'] - border['size'])
 

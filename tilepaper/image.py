@@ -1,5 +1,6 @@
 from PIL import Image as Img
 
+
 class Image(object):
     """
     Image object
@@ -12,7 +13,7 @@ class Image(object):
         self.size = self.im.size
         _f.close()
 
-    def resize(self,width,height):
+    def resize(self, width, height):
         """
         Resize the image to the specified size
         Resizes with croping/scaling
@@ -28,19 +29,19 @@ class Image(object):
             else:
                 yofs = (cHeight-height)/hRatio/2
 
-            cropBox = [int(p) for p in [xofs, yofs, self.size[0]-xofs, self.size[1]-yofs]]
+            cropBox = [int(p) for p
+                       in [xofs, yofs, self.size[0]-xofs, self.size[1]-yofs]]
             rsz = im.crop(cropBox)
-            return rsz.resize((width,height), Img.ANTIALIAS)
+            return rsz.resize((width, height), Img.ANTIALIAS)
 
-
-    def ratioChange(self,rFrom,rTo):
+    def ratioChange(self, rFrom, rTo):
         return float(rTo) / float(rFrom)
 
     def __enter__(self):
         self._file = self.rawFile
         return Img.open(self._file)
 
-    def __exit__(self,*sp):
+    def __exit__(self, *sp):
         self._file.close()
 
     @property

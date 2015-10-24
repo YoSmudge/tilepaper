@@ -8,13 +8,15 @@ import time
 import yaml
 import random
 
+
 class ConfigException(Exception):
     None
 
-class generator(object):
-    imageTypes = ['image/jpeg','image/png']
 
-    def process(self,source,dest,**config):
+class generator(object):
+    imageTypes = ['image/jpeg', 'image/png']
+
+    def process(self, source, dest, **config):
         self.source = os.path.abspath(
             os.path.expanduser(source)
         )
@@ -32,7 +34,8 @@ class generator(object):
 
         for size in config['sizes']:
             logging.info("Generating tile format for %s" % size)
-            gridSize = config['grid'][size] if size in config['grid'] else config['grid']['default']
+            gridSize = config['grid'][size]\
+                if size in config['grid'] else config['grid']['default']
             tiles = self.generateTiles(
                 images,
                 gridSize,
@@ -42,7 +45,7 @@ class generator(object):
             logging.info("Rendering")
             self.renderTiles(tiles, size, gridSize)
 
-    def findImages(self,directory):
+    def findImages(self, directory):
         """
         Recursive scan directory to find images
         """
@@ -60,7 +63,10 @@ class generator(object):
                     if mimeType in self.imageTypes:
                         images.append(Image(fullPath))
                     else:
-                        logging.debug("Skipping file %s with mime %s" % (fullPath, mimeType))
+                        logging.debug(
+                            "Skipping file %s with mime %s"
+                            % (fullPath, mimeType)
+                        )
         return images
 
     def generateTiles(self, images, gridSize, inclusions):
@@ -74,25 +80,28 @@ class generator(object):
         while True:
             avaliableImages = [
                 im for im in images
-                if not im.file in imageUses.keys()\
-                    or imageUses[im.file] < inclusions
+                if im.file not in imageUses.keys() or
+                imageUses[im.file] < inclusions
             ]
 
             if len(avaliableImages) == 0:
                 break
 
-            logging.debug("Tile %06d with %d images remaining" % (tileId, len(avaliableImages)))
+            logging.debug(
+                "Tile %06d with %d images remaining"
+                % (tileId, len(avaliableImages))
+            )
             grid = Grid(avaliableImages, gridSize)
 
             if grid.full:
-                tiles.append({"id":tileId,"grid":grid})
+                tiles.append({"id": tileId, "grid": grid})
                 tileId += 1
             else:
                 logging.debug("Tile not full, skipping")
-                
+
             for cell in grid.grid:
                 im = cell['image']
-                if not im.file in imageUses:
+                if im.file not in imageUses:
                     imageUses[im.file] = 1
                 else:
                     imageUses[im.file] += 1
@@ -110,7 +119,7 @@ class generator(object):
             int(float(tileSize[-1])/float(gridSize[-1]))
         ]
 
-        renderDir = os.path.join(self.dest,size)
+        renderDir = os.path.join(self.dest, size)
         if not os.path.isdir(renderDir):
             os.mkdir(renderDir)
 
@@ -120,4 +129,8 @@ class generator(object):
                 renderDir,
                 "%06d.jpg" % tile['id']
             )
-            r = TileRenderer(tile['grid'], tileSize, cellSize, self.config['border'], filePath)
+            r = TileRenderer(tile['grid'],
+                             tileSize,
+                             cellSize,
+                             self.config['border'],
+                             filePath)

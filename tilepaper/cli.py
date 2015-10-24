@@ -4,6 +4,7 @@ import logging
 import tilepaper.tiler
 import tilepaper.config
 
+
 def run():
     p = ArgumentParser()
     p.add_argument('--source', required=True)
@@ -27,7 +28,6 @@ def run():
         dest=options.destination,
         **config
     )
-
 
 
 if __name__ == "__main__":
