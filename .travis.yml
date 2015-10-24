@@ -21,6 +21,6 @@ install:
   - "python setup.py install"
 
 script:
-  - pep8 dnsyo
+  - pep8 tilepaper/
   - mkdir test-output
   - tilepaper --source=./example-images/ --destination=test-output/ --config=./example-config.yml --verbose
