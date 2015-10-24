@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/samarudge/tilepaper.svg?branch=master)](https://travis-ci.org/samarudge/tilepaper)
+
 # tilepaper
 
 ## Generate a sort of tiled image thingy a bit like the Mac screensaver
