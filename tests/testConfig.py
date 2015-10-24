@@ -18,7 +18,7 @@ class testConfig(object):
         eq_(type(config), dict)
         eq_(type(config['sizes']), list)
 
-    @raises(FileNotFoundError)
+    @raises(OSError)
     def test_missing(self):
         """
         Raises exception for file not found
