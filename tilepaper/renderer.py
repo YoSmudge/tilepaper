@@ -1,5 +1,4 @@
 from PIL import Image as Img
-from PIL import ImageDraw
 
 class TileRenderer(object):
     def __init__(self, grid, tileSize, cellSize, border, filePath):

@@ -1,8 +1,8 @@
 from argparse import ArgumentParser
 import sys
 import logging
-import snaptiler.tiler
-import snaptiler.config
+import tilepaper.tiler
+import tilepaper.config
 
 def run():
     p = ArgumentParser()
@@ -20,8 +20,8 @@ def run():
     else:
         logging.basicConfig(level=logging.INFO)
 
-    config = snaptiler.config.load(options.config)
-    t = snaptiler.tiler.generator()
+    config = tilepaper.config.load(options.config)
+    t = tilepaper.tiler.generator()
     t.process(
         source=options.source,
         dest=options.destination,

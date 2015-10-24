@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 import os
-import snaptiler
+import tilepaper
 
 requirements = ['PyYAML==3.11', 'filemagic==1.6', 'Pillow==3.0.0']
 
-setup(name='snaptiler',
-	version=snaptiler.__version__,
+setup(name='tilepaper',
+	version=tilepaper.__version__,
 	author='Sam Rudge',
 	author_email='sam@codesam.co.uk',
 	packages=find_packages(),

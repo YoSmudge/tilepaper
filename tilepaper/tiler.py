@@ -1,9 +1,9 @@
 import magic
 import os
 import logging
-from snaptiler.image import Image
-from snaptiler.grid import Grid
-from snaptiler.renderer import TileRenderer
+from tilepaper.image import Image
+from tilepaper.grid import Grid
+from tilepaper.renderer import TileRenderer
 import time
 import yaml
 import random
