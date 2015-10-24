@@ -1,0 +1,12 @@
+sizes:
+  - 1366x768
+  - 1920x1280
+  - 1024x768
+  - 1280x720
+border:
+  size: 2
+  color: 000
+grid:
+  1024x768: [4,3]
+  default: [6,4]
+inclusions: 5
