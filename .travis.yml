@@ -9,7 +9,7 @@ matrix:
     - python: "2.6"
   allow_failures:
     - python: "2.6"
-    - python: "pypi"
+    - python: "pypy"
 
 script: ./test.py $TEST_SUITE
 
