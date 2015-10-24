@@ -18,6 +18,22 @@ configDefaults = {
 }
 
 
+def mergedict(a, b, path=None):
+    """
+    Dictionary merge
+    http://stackoverflow.com/a/7205107/744180
+    """
+
+    path = [] if path is None else path
+    for key in b:
+        if key in a:
+            if isinstance(a[key], dict) and isinstance(b[key], dict):
+                mergedict(a[key], b[key], path + [str(key)])
+        else:
+            a[key] = b[key]
+    return a
+
+
 def load(configPath):
     """
     Load configuration
@@ -25,4 +41,5 @@ def load(configPath):
 
     with open(configPath) as configFile:
         raw = configFile.read()
-        return yaml.safe_load(raw)
+        loadedConfig = yaml.safe_load(raw)
+        return mergedict(loadedConfig, configDefaults)
