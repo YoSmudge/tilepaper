@@ -16,6 +16,7 @@ script: ./test.py $TEST_SUITE
 sudo: false
 
 install:
+  - "pip install codecov"
   - "pip install pep8"
   - "pip install flake8==2.4.1"
   - "pip install nose==1.3.7"
@@ -26,4 +27,8 @@ script:
   - flake8 setup.py tilepaper/ tests/ --statistics
   - mkdir test-output
   - tilepaper --source=./example-images/ --destination=test-output/ --config=./example-config.yml --verbose
-  - nosetests -v
+  - nosetests -v tests/testTiler.py:testTiler.test_fullProcess
+  - nosetests -v --exclude=test_fullProcess --with-coverage
+
+after_success:
+  - codecov
