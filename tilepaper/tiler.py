@@ -83,14 +83,19 @@ class generator(object):
 
             logging.debug("Tile %06d with %d images remaining" % (tileId, len(avaliableImages)))
             grid = Grid(avaliableImages, gridSize)
-            tiles.append({"id":tileId,"grid":grid})
+
+            if grid.full:
+                tiles.append({"id":tileId,"grid":grid})
+                tileId += 1
+            else:
+                logging.debug("Tile not full, skipping")
+                
             for cell in grid.grid:
                 im = cell['image']
                 if not im.file in imageUses:
                     imageUses[im.file] = 1
                 else:
                     imageUses[im.file] += 1
-            tileId += 1
 
         return tiles
 

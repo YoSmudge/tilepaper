@@ -26,7 +26,8 @@ Run it, see if it works - I might do real tests some time
 
 ### Known issues
 
-Sometimes tiles have black spaces on them, because my grid algorithm is terrible
+ * Sometimes tiles have black spaces on them, because my grid algorithm is terrible - _FIXED_ 0.1.4
+ * Black line at right edge of some images (Rounding down bug?)
 
 ### Unknown issues
 

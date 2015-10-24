@@ -77,6 +77,14 @@ class Grid(object):
         return coords
 
     @property
+    def full(self):
+        """
+        Does the grid have any free space on it
+        """
+
+        return all(c in self.occupiedCoords for c in self.gridCoords)
+
+    @property
     def occupiedCoords(self):
         """
         Return all coords with an image in
@@ -94,7 +102,7 @@ class Grid(object):
         Return a list of all possible grid coords
         """
         coords = []
-        for x in range(0,self.gridSize[0]+1):
-            for y in range(0, self.gridSize[1]+1):
+        for x in range(0,self.gridSize[0]):
+            for y in range(0, self.gridSize[1]):
                 coords.append([x,y])
         return coords
