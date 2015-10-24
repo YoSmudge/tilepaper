@@ -41,7 +41,6 @@ class generator(object):
             logging.info("Generated %d tile layouts" % len(tiles))
             logging.info("Rendering")
             self.renderTiles(tiles, size, gridSize)
-            exit()
 
     def findImages(self,directory):
         """
