@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/samarudge/tilepaper.svg?branch=master)](https://travis-ci.org/samarudge/tilepaper)
+[![codecov.io](https://codecov.io/github/samarudge/tilepaper/coverage.svg?branch=master)](https://codecov.io/github/samarudge/tilepaper?branch=master)
 
 # tilepaper
 
