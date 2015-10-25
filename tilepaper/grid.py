@@ -35,7 +35,7 @@ class Grid(object):
             height = 2
             width = 1
         else:
-            if random.randint(1, 5) > 3 and not small:
+            if random.randint(0, 10) <= 2 and not small:
                 height = 2
                 width = 2
             else:

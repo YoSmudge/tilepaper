@@ -1,17 +1,14 @@
-import tilepaper.image
 from nose.tools import eq_
 import PIL
 import os
 import shutil
+import testBase
 
 
-class TestImage(object):
+class TestImage(testBase.testBase):
     """
     Test image loading and resizing
     """
-
-    def imageClass(self, imFile='140101-145456-00014-3433.jpg'):
-        return tilepaper.image.Image(os.path.join('example-images', imFile))
 
     def testOpen(self):
         """
@@ -59,10 +56,7 @@ class TestImage(object):
                        [500, 512], [400, 512], [300, 512], [200, 512],
                        [512, 500], [512, 400], [512, 300], [512, 200]
         ]:
-            for im in [
-                '140101-145005-00012-3423.jpg',
-                '140101-145456-00014-3433.jpg'
-            ]:
+            for im in self.testImages:
                 i = self.imageClass(im)
                 r = i.resize(*example)
                 eq_(r.size[0], example[0])
