@@ -2,7 +2,6 @@ from nose.tools import eq_, ok_, assert_true
 import tilepaper.tiler
 import tilepaper.config
 import os
-import shutil
 from PIL import Image as Img
 import magic
 
@@ -41,9 +40,6 @@ class testTiler(object):
         Full render process
         """
 
-        if os.path.isdir('test-output'):
-            shutil.rmtree('test-output')
-        os.mkdir('test-output')
         t = tilepaper.tiler.generator()
         c = tilepaper.config.load('./example-config.yml')
         t.process('example-images', 'test-output', **c)

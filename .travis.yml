@@ -28,7 +28,7 @@ script:
   - mkdir test-output
   - tilepaper --source=./example-images/ --destination=test-output/ --config=./example-config.yml --verbose
   - nosetests -v tests/testTiler.py:testTiler.test_fullProcess
-  - nosetests -v --exclude=test_fullProcess --with-coverage
+  - nosetests -v --exclude=test_fullProcess --with-coverage --cover-package=tilepaper
 
 after_success:
   - codecov

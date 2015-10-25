@@ -1,42 +1,12 @@
 import tilepaper.grid
 from nose.tools import ok_, eq_
 import testBase
-import tilepaper.renderer
 
 
 class testGrid(testBase.testBase):
     """
     Test grid generation
     """
-
-    @property
-    def gridClass(self):
-        """
-        Basic grid class
-        """
-
-        return tilepaper.grid.Grid(
-            self.imageList,
-            (5, 5)
-        )
-
-    @property
-    def fakeGrid(self):
-        """
-        Return a fake image grid list
-        """
-        # Fill grid with fake images
-        fakeGrid = []
-        for x in range(0, 5):
-            for y in range(0, 5):
-                fakeGrid.append({
-                    'x': x,
-                    'y': y,
-                    'width': 1,
-                    'height': 1,
-                    'image': self.imageClass()
-                })
-        return fakeGrid
 
     def test_sizing(self):
         """

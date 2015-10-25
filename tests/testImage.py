@@ -1,7 +1,5 @@
 from nose.tools import eq_
 import PIL
-import os
-import shutil
 import testBase
 
 
@@ -48,9 +46,6 @@ class TestImage(testBase.testBase):
         Returns a correctly resized image
         """
 
-        if os.path.isdir('test-resizes'):
-            shutil.rmtree('test-resizes')
-        os.mkdir('test-resizes')
         for example in [
                        [100, 50], [256, 256], [50, 100], [512, 512],
                        [500, 512], [400, 512], [300, 512], [200, 512],
