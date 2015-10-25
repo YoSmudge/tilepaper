@@ -1,4 +1,5 @@
 from PIL import Image as Img
+from PIL import ImageOps
 
 
 class Image(object):
@@ -19,20 +20,7 @@ class Image(object):
         Resizes with croping/scaling
         """
         with self as im:
-            xofs, yofs = 0, 0
-            wRatio = self.ratioChange(self.size[0], width)
-            hRatio = self.ratioChange(self.size[1], height)
-            cHeight = int(self.size[1]*wRatio)
-            cWidth = int(self.size[0]*hRatio)
-            if cWidth > width:
-                xofs = (cWidth-width)/wRatio/2
-            else:
-                yofs = (cHeight-height)/hRatio/2
-
-            cropBox = [int(p) for p
-                       in [xofs, yofs, self.size[0]-xofs, self.size[1]-yofs]]
-            rsz = im.crop(cropBox)
-            return rsz.resize((width, height), Img.ANTIALIAS)
+            return ImageOps.fit(im, (width, height), centering=(0.5, 0.5))
 
     def ratioChange(self, rFrom, rTo):
         return float(rTo) / float(rFrom)

@@ -54,7 +54,11 @@ class TestImage(object):
         if os.path.isdir('test-resizes'):
             shutil.rmtree('test-resizes')
         os.mkdir('test-resizes')
-        for example in [[100, 50], [256, 256], [50, 100]]:
+        for example in [
+                       [100, 50], [256, 256], [50, 100], [512, 512],
+                       [500, 512], [400, 512], [300, 512], [200, 512],
+                       [512, 500], [512, 400], [512, 300], [512, 200]
+        ]:
             for im in [
                 '140101-145005-00012-3423.jpg',
                 '140101-145456-00014-3433.jpg'
@@ -63,8 +67,3 @@ class TestImage(object):
                 r = i.resize(*example)
                 eq_(r.size[0], example[0])
                 eq_(r.size[1], example[1])
-                r.save(os.path.join(
-                    'test-resizes',
-                    '%s-%dx%d.jpg'
-                    % (im, example[0], example[1])
-                ))
