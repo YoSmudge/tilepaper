@@ -22,6 +22,10 @@ class testBase(object):
             shutil.rmtree('test-output')
         os.mkdir('test-output')
 
+    def tearDown(self):
+        if os.path.isdir('example-images/subdir'):
+            shutil.rmtree('example-images/subdir')
+
     def imageClass(self, imFile='140101-145456-00014-3433.jpg'):
         return tilepaper.image.Image(os.path.join('example-images', imFile))
 
