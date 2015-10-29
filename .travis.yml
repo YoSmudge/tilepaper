@@ -5,11 +5,15 @@ matrix:
     - python: "3.3"
     - python: "3.4"
     - python: "3.5"
+    - python: "3.5-dev"
+    - python: "nightly"
     - python: "pypy"
     - python: "2.6"
   allow_failures:
     - python: "2.6"
     - python: "pypy"
+    - python: "3.5-dev"
+    - python: "nightly"
 
 script: ./test.py $TEST_SUITE
 
