@@ -12,6 +12,7 @@ setup(name='tilepaper',
       include_package_data=True,
       zip_safe=False,
       url="https://github.com/samarudge/tilepaper",
+      licence="MIT",
       entry_points="""
 [console_scripts]
 tilepaper = tilepaper.cli:run
@@ -21,6 +22,13 @@ tilepaper = tilepaper.cli:run
           'Intended Audience :: End Users/Desktop',
           'License :: OSI Approved :: MIT License',
           'Topic :: Multimedia :: Graphics',
-          'Topic :: Utilities'
+          'Topic :: Utilities',
+          'Programming Language :: Python',
+          'Programming Language :: Python :: 2',
+          'Programming Language :: Python :: 2.7',
+          'Programming Language :: Python :: 3',
+          'Programming Language :: Python :: 3.3',
+          'Programming Language :: Python :: 3.4',
+          'Programming Language :: Python :: 3.5',
       ]
       )
