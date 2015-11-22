@@ -3,7 +3,7 @@
 
 # tilepaper
 
-## Generate a sort of tiled image thingy a bit like the Mac screensaver
+## Generate OS/X "Shifting Tiles" style wallpapers
 
 ### About
 
@@ -15,13 +15,7 @@ Now having the images full size as my wallpaper is fine, but I'd much rather see
 
 ### Usage
 
-First install (probably in a virtualenv), with `pip install titlepaper`
-
-Then run the tilepaper command
-
-    tilepaper --source=./example-images/ --destination=./test-output --config=./example-config.yml --verbose
-
-Compatible with Python 2.7+ and Python 3. Requires PIL, PyYAML and LibMagic
+For usage see [the blog post](https://www.codedog.co.uk/tilepaper#usage)
 
 ### Tests
 
