@@ -15,17 +15,23 @@ Now having the images full size as my wallpaper is fine, but I'd much rather see
 
 ### Usage
 
-First install (probably in a virtualenv), with `python setup.py install`
+First install (probably in a virtualenv), with `pip install titlepaper`
 
 Then run the tilepaper command
 
     tilepaper --source=./example-images/ --destination=./test-output --config=./example-config.yml --verbose
 
-Developed against Python 3.4, YMMV with other versions. Requires PIL, PyYAML and LibMagic
+Compatible with Python 2.7+ and Python 3. Requires PIL, PyYAML and LibMagic
 
 ### Tests
 
-Run it, see if it works - I might do real tests some time
+You can test the whole render process with
+
+    nosetests -v tests/testTiler.py:testTiler.test_fullProcess
+
+Or run the individual unit tests with
+
+    nosetests -v --exclude=test_fullProcess --with-coverage --cover-package=tilepaper
 
 ### Known issues
 

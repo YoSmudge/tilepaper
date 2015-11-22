@@ -11,8 +11,16 @@ setup(name='tilepaper',
       install_requires=requirements,
       include_package_data=True,
       zip_safe=False,
+      url="https://github.com/samarudge/tilepaper",
       entry_points="""
 [console_scripts]
 tilepaper = tilepaper.cli:run
-"""
+""",
+      classifiers=[
+          'Environment :: Console',
+          'Intended Audience :: End Users/Desktop',
+          'License :: OSI Approved :: MIT License',
+          'Topic :: Multimedia :: Graphics',
+          'Topic :: Utilities'
+      ]
       )
