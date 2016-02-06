@@ -13,6 +13,7 @@ class ConfigException(Exception):
 
 class generator(object):
     imageTypes = ['image/jpeg', 'image/png']
+    progress = False
 
     def process(self, source, dest, progress=False, **config):
         self.source = os.path.abspath(
