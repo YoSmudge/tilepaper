@@ -20,7 +20,7 @@ class Image(object):
         Resizes with croping/scaling
         """
         with self as im:
-            return ImageOps.fit(im, (width, height), centering=(0.5, 0.5))
+            return ImageOps.fit(im, (width, height), centering=(0.5, 0.5), method=Img.ANTIALIAS)
 
     def ratioChange(self, rFrom, rTo):
         return float(rTo) / float(rFrom)
