@@ -11,6 +11,7 @@ def run():
     p.add_argument('--config', required=True)
     p.add_argument('--quiet', action="store_true")
     p.add_argument('--verbose', action="store_true")
+    p.add_argument('--progress', action="store_true")
     options = p.parse_args()
 
     if options.verbose:
@@ -25,6 +26,7 @@ def run():
     t.process(
         source=options.source,
         dest=options.destination,
+        progress=options.progress,
         **config
     )
 

@@ -4,6 +4,7 @@ import logging
 from tilepaper.image import Image
 from tilepaper.grid import Grid
 from tilepaper.renderer import TileRenderer
+from tqdm import tqdm
 
 
 class ConfigException(Exception):
@@ -13,7 +14,7 @@ class ConfigException(Exception):
 class generator(object):
     imageTypes = ['image/jpeg', 'image/png']
 
-    def process(self, source, dest, **config):
+    def process(self, source, dest, progress=False, **config):
         self.source = os.path.abspath(
             os.path.expanduser(source)
         )
@@ -21,6 +22,7 @@ class generator(object):
             os.path.expanduser(dest)
         )
         self.config = config
+        self.progress = progress
 
         for d in [("Source", self.source), ("Destination", self.dest)]:
             if not os.path.isdir(d[1]):
@@ -120,7 +122,12 @@ class generator(object):
         if not os.path.isdir(renderDir):
             os.mkdir(renderDir)
 
-        for tile in tiles:
+        if self.progress:
+            iterator = tqdm(tiles, total=len(tiles))
+        else:
+            iterator = tiles
+
+        for tile in iterator:
             logging.debug("Rendering tile %d of %d" % (tile['id'], len(tiles)))
             filePath = os.path.join(
                 renderDir,
