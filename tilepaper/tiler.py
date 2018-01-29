@@ -1,6 +1,7 @@
 import magic
 import os
 import logging
+import random
 from tilepaper.image import Image
 from tilepaper.grid import Grid
 from tilepaper.renderer import TileRenderer
@@ -31,6 +32,9 @@ class generator(object):
 
         images = self.findImages(self.source)
         logging.info("Found %d images" % len(images))
+
+        if self.config['seed']:
+            random.seed(self.config['seed'])
 
         for size in config['sizes']:
             logging.info("Generating tile format for %s" % size)

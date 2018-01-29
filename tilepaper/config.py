@@ -14,7 +14,8 @@ configDefaults = {
         "1024x768": [3, 4],
         "": [5, 4]
     },
-    "inclusions": 5
+    "inclusions": 5,
+    "seed": None
 }
 
 

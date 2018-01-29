@@ -1,2 +1,5 @@
 test-output
 test-resizes
+tilepaper.egg-info
+__pycache__
+.DS_Store
